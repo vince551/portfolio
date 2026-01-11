@@ -106,6 +106,42 @@ nav a::after {
     border-radius: 50%; /* Makes it a perfect circle */
     border: 3px solid var(--accent); /* Adds a themed border */
 }
+
+/* --- Updated Nav & Icons --- */
+.top-nav { gap: 1rem; }
+.top-nav .nav-list { display: flex; gap: 1.4rem; align-items: center; list-style: none; }
+.top-nav .nav-list a { display: inline-flex; gap: 0.6rem; align-items: center; color: inherit; }
+.icon-nav { width: 18px; height: 18px; fill: currentColor; opacity: 0.9; }
+.nav-toggle { display: none; background: transparent; border: none; padding: 0.25rem; cursor: pointer; }
+
+/* Profile cinematic wrap */
+.profile-wrap { position: relative; width: 72px; height: 72px; margin-left: 0.5rem; perspective: 900px; }
+.profile-wrap .pic { width: 72px; height: 72px; border-width: 2px; }
+.animated-pic { transform-origin: 50% 50%; animation: pic-drift 8s ease-in-out infinite; box-shadow: 0 8px 30px rgba(2,6,23,0.6); }
+.profile-glint { position: absolute; inset: 0; pointer-events: none; border-radius: 50%; background: linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0)); mix-blend-mode: screen; animation: glint-move 3.6s linear infinite; }
+
+@keyframes pic-drift {
+    0% { transform: rotateX(0deg) rotateY(0deg) translateY(0); }
+    50% { transform: rotateX(2.2deg) rotateY(-2.2deg) translateY(-4px) scale(1.02); }
+    100% { transform: rotateX(0deg) rotateY(0deg) translateY(0); }
+}
+@keyframes glint-move {
+    0% { transform: translateX(-140%); opacity: 0; }
+    30% { opacity: 0.6; }
+    60% { transform: translateX(140%); opacity: 0.6; }
+    100% { transform: translateX(280%); opacity: 0; }
+}
+
+/* Cinematic edge and subtle filmgrain for premium feel */
+.profile-wrap::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; pointer-events: none; box-shadow: 0 0 40px rgba(139,92,246,0.12), inset 0 0 12px rgba(0,0,0,0.35); }
+
+/* Mobile behavior: collapse nav */
+@media (max-width: 880px) {
+    .nav-toggle { display: inline-flex; align-items: center; }
+    .top-nav .nav-list { position: absolute; right: 1.2rem; top: 72px; background: rgba(2,6,23,0.92); padding: 1rem; border-radius: 12px; flex-direction: column; gap: 0.6rem; display: none; box-shadow: 0 12px 40px rgba(2,6,23,0.6); }
+    .top-nav.nav-open .nav-list { display: flex; }
+}
+
 /* Hero Section */
 .hero {
     height: 80vh;
@@ -393,3 +429,120 @@ footer {
     background: linear-gradient(45deg, #f09433, #e1306c, #bc1888); 
     color: white; 
 }
+
+/* Accessibility: Skip link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--accent);
+    color: #000;
+    padding: 0.6rem 1rem;
+    z-index: 9999;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    border-radius: 6px;
+}
+
+/* Hero subtle float animation */
+.hero { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    background-image: linear-gradient(120deg, rgba(56,189,248,0.06), rgba(139,92,246,0.04));
+    animation: hero-entrance 900ms cubic-bezier(.2,.9,.2,1) both;
+}
+@keyframes hero-entrance {
+    from { transform: translateY(12px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 600ms ease, transform 600ms ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Loading overlay for premium feel */
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.9));
+    z-index: 99999;
+}
+.spinner {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent), #8b5cf6, #ec4899, var(--accent));
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), black 0);
+    animation: spin 1.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Custom animated cursor (JS will update position) */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    box-shadow: 0 4px 18px rgba(139,92,246,0.35);
+    mix-blend-mode: screen;
+    z-index: 999999;
+    transition: width 180ms ease, height 180ms ease, background 180ms ease, transform 120ms ease;
+}
+.custom-cursor.enlarge { width: 42px; height: 42px; }
+
+/* Micro-interaction for clickable elements */
+a, button, .link-btn, .social-card { cursor: none; }
+
+/* Responsive nav */
+@media (max-width: 880px) {
+    nav { padding: 1rem 4%; }
+    .pic { width: 56px; height: 56px; }
+    nav ul { gap: 1rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .container { padding: 2rem 1rem; }
+}
+
+@media (max-width: 520px) {
+    .grid { grid-template-columns: 1fr; }
+    .cta-group { display: flex; flex-direction: column; gap: 0.8rem; }
+}
+
+/* Additional responsive polish */
+@media (max-width: 880px) {
+    .top-nav { padding: 0.8rem 1rem; }
+    .top-nav .logo { font-size: 1.1rem; }
+    .profile-wrap { width: 56px; height: 56px; }
+    .profile-wrap .pic { width: 56px; height: 56px; }
+    .hero { min-height: 56vh; padding: 2.2rem 1rem; }
+    .hero h1 { font-size: 2.2rem; text-align: left; }
+    .hero p { text-align: left; margin: 0.6rem 0 1.2rem; }
+    .nav-list { right: 0.8rem; top: 64px; }
+}
+
+@media (max-width: 520px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1.2rem; }
+    .card { padding: 1.4rem; }
+    .pic { display: none; } /* hide large portrait on smallest screens to prioritize content */
+    .profile-wrap { display: inline-block; }
+}
+
+/* Utility tweaks to ensure Tailwind utilities won't be visually jarring when used */
+.btn-sm { padding: 0.45rem 0.8rem; border-radius: 8px; }
+.btn-primary { padding: 0.65rem 1.2rem; border-radius: 10px; }
+
+
+/* Small accessibility tweak for focus outlines */
+:focus { outline: 3px solid rgba(56,189,248,0.18); outline-offset: 2px; }
+
