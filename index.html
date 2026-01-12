@@ -1,291 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Professional Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Outfit:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Tailwind CDN (for utility classes and rapid responsive tuning) -->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vince Odhiambo | Professional Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons (Phosphor) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Config -->
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              accent: "#38bdf8",
-              "bg-dark": "#0f172a",
-            },
-          },
-        },
-      };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Outfit"', 'sans-serif'],
+                        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1e1e1e',
+                        },
+                        brand: {
+                            purple: '#8b5cf6',
+                            blue: '#3b82f6',
+                            cyan: '#06b6d4',
+                            pink: '#ec4899',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
     </script>
-    <meta name="theme-color" content="#0f172a" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-900 text-white font-body overflow-x-hidden relative">
 
-    <nav
-      role="navigation"
-      aria-label="Primary"
-      class="top-nav flex items-center justify-between px-6 py-4 md:px-10 max-w-screen-xl mx-auto"
-    >
-      <div class="logo">MY PORTFOLIO<b>.</b></div>
+    <!-- Background Blobs -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-pink/20 rounded-full blur-[120px]"></div>
+    </div>
 
-      <button
-        class="nav-toggle md:hidden p-2 rounded-md"
-        aria-expanded="false"
-        aria-controls="primary-navigation"
-        aria-label="Toggle navigation"
-      >
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 6h16M4 12h16M4 18h16"
-            stroke="white"
-            stroke-width="1.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-dark-900/80" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-heading font-bold tracking-tight group">
+                MY PORTFOLIO<span class="text-brand-cyan text-3xl leading-none group-hover:text-brand-purple transition-colors">.</span>
+            </a>
 
-      <ul
-        id="primary-navigation"
-        class="nav-list hidden md:flex items-center gap-6"
-      >
-        <li>
-          <a href="#skills"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M12 2l3 6 6 .5-4.5 3.9L19 22l-7-4-7 4 1.5-9.6L3 8.5 9 8 12 2z"
-              /></svg
-            >Skills</a
-          >
-        </li>
-        <li>
-          <a href="#work"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 7h18v13H3zM5 3h14v2H5z" /></svg
-            >Work</a
-          >
-        </li>
-        <li>
-          <a href="#about"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="3" />
-              <path d="M5.5 20a6.5 6.5 0 0 1 13 0" /></svg
-            >About</a
-          >
-        </li>
-        <li>
-          <a href="#collaborate"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2v6l4 2-4 2v6l-4-2V8l4-6z" /></svg
-            >Collaborate</a
-          >
-        </li>
-        <li>
-          <a href="#connect"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 8V7l-3 2-2-1-3 3-4-1-3 3v3h18V8z" /></svg
-            >Connect</a
-          >
-        </li>
-        <li>
-          <a href="mailto:architectvince7@gmail.com" class="btn-sm"
-            ><svg class="icon-nav" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 4h16v16H4zM22 6l-10 7L2 6" /></svg
-            >Hire</a
-          >
-        </li>
-      </ul>
+            <!-- Desktop Links -->
+            <ul class="hidden md:flex items-center gap-8">
+                <li><a href="#skills" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                <li><a href="#work" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Work</a></li>
+                <li><a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="#contact" class="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-brand-purple/50 transition-all text-sm font-semibold">Let's Talk</a></li>
+            </ul>
 
-      <figure class="profile-wrap ml-4">
-        <img
-          src="images/vince.jpg"
-          alt="Vince Odhiambo"
-          class="pic animated-pic"
-        />
-        <div class="profile-glint" aria-hidden="true"></div>
-      </figure>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-white focus:outline-none" id="menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="fixed inset-0 bg-dark-900 z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8" id="mobile-menu">
+            <button class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white" id="close-menu-btn">
+                <i class="ph ph-x"></i>
+            </button>
+            <a href="#skills" class="mobile-link text-3xl font-heading font-bold hover:text-brand-cyan transition-colors">Skills</a>
+            <a href="#work" class="mobile-link text-3xl font-heading font-bold hover:text-brand-purple transition-colors">Work</a>
+            <a href="#about" class="mobile-link text-3xl font-heading font-bold hover:text-brand-pink transition-colors">About</a>
+            <a href="#contact" class="mobile-link text-3xl font-heading font-bold hover:text-white transition-colors">Contact</a>
+        </div>
     </nav>
 
-    <header
-      class="hero bg-gradient-to-br from-bg-dark/60 to-bg-dark/80"
-      role="banner"
-    >
-      <div class="container mx-auto px-6">
-        <h1>Hi, I'm <span class="highlight">Vince Odhiambo</span></h1>
-        <p>
-          I build websites be it for schooling institutions, small businesses,
-          hospitals, restaurants, travelling companies and national assemblies.
-        </p>
-        <div class="cta-group">
-          <a
-            href="mailto:architectvince7@gmail.com?subject=Hiring Inquiry"
-            class="btn-sm"
-            >Hire Me</a
-          >
-          <a
-            href="mailto:architectvince7@gmail.com?subject=Project Collaboration"
-            class="btn-primary ml-3 md:ml-6"
-            >Hire Me</a
-          >
-        </div>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section id="skills" class="container reveal">
-        <h2>Expertise</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="card p-6 rounded-xl">
-            <h3>Technical Skills</h3>
-            <p>Html, css and web publishing.</p>
-          </div>
-          <div class="card p-6 rounded-xl">
-            <h3>Design</h3>
-            <p>UI/UX Design, Figma, Adobe Suite</p>
-          </div>
-          <div class="card p-6 rounded-xl">
-            <h3>Social</h3>
-            <p>
-              Children right's advocate. <br />
-              Served the Kenya national children assembly since childhood.
-              <br />Won the childre's rights advocate awards held in South
-              Africa.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="container reveal">
-        <h2>Featured Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="card project-card p-6 rounded-xl">
-            <div class="project-img-placeholder"></div>
-            <h3>Project One</h3>
-            <p>
-              A brief description of the problem you solved and the tech used.
-            </p>
-            <a href="#" class="link-btn">View Case Study →</a>
-          </div>
-          <div class="card project-card p-6 rounded-xl">
-            <div class="project-img-placeholder"></div>
-            <h3>Project Two</h3>
-            <p>Showcasing your ability to handle complex UI/UX challenges.</p>
-            <a href="#" class="link-btn">View Case Study →</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="container reveal">
-        <div class="about-content neon-box">
-          <div class="about-text">
-            <h2><span class="neon-text">About Vince</span></h2>
-            <p>
-              I am a passionate developer and designer who thrives on creating
-              <span class="neon-text">bold</span> digital experiences.
-              <span class="neon-text">I don't just write code</span>; I build
-              solutions that light up the screen.
-            </p>
-            <p>
-              With a
-              <span class="neon-text"
-                >focus on modern aesthetics and high-performance
-                functionality,</span
-              >
-              I help brands stand out in the dark.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="collaborate" class="container reveal">
-        <div class="contact-card p-6 md:p-10 rounded-2xl">
-          <div class="form-header">
-            <h2 class="neon-text-purple">Let's Collaborate</h2>
-            <p>Have a project in mind? Let's build something legendary.</p>
-          </div>
-
-          <form class="colorful-form">
-            <div class="input-group">
-              <input type="text" placeholder="Your Name" required />
-              <span class="bar"></span>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-20">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-brand-purple/30 bg-brand-purple/10 text-brand-purple text-sm font-semibold tracking-wide mb-6">
+                AVAILABLE FOR HIRE
             </div>
-            <div class="input-group">
-              <input type="email" placeholder="Your Email" required />
-              <span class="bar"></span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold tracking-tighter mb-6 leading-tight">
+                Hi, I'm <span class="bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink bg-clip-text text-transparent">Vince</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                I build digital experiences for schooling institutions, small businesses, and national assemblies. Combining bold designs with flawless code.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold tracking-wide hover:shadow-lg hover:shadow-brand-purple/25 hover:-translate-y-1 transition-all">
+                    Hire Me Now
+                </a>
+                <a href="#work" class="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2 group">
+                    View Projects <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
-            <div class="input-group">
-              <textarea
-                placeholder="Tell me about your project..."
-                rows="15"
-              ></textarea>
-              <span class="bar"></span>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 animate-bounce text-gray-500">
+            <i class="ph ph-arrow-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">My <span class="text-brand-cyan">Expertise</span></h2>
+                <div class="h-1 w-20 bg-brand-cyan mx-auto rounded-full"></div>
             </div>
-            <button type="submit" class="btn-gradient">Send Proposal</button>
-          </form>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="group p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-cyan/50 hover:bg-brand-cyan/5 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                    <p class="text-gray-400 leading-relaxed">HTML5, CSS3, Modern JavaScript, and framework architecture.</p>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="group p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-purple/50 hover:bg-brand-purple/5 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-paint-brush-broad"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
+                    <p class="text-gray-400 leading-relaxed">Figma prototyping, user research, and Adobe Creative Suite wizardry.</p>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="group p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-pink/50 hover:bg-brand-pink/5 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-users-three"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advocacy & Leadership</h3>
+                    <p class="text-gray-400 leading-relaxed">Award-winning children's rights advocate in Kenya and South Africa.</p>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section id="connect" class="container reveal">
-        <div class="social-header">
-          <h2 class="neon-text">
-            Find Me <span class="white-text">Online</span>
-          </h2>
-          <p>Let's link up on these platforms.</p>
+    <!-- Work Section -->
+    <section id="work" class="py-24 bg-dark-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-right">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-2">Featured <span class="text-brand-purple">Projects</span></h2>
+                    <p class="text-gray-400">Selected works from my journey.</p>
+                </div>
+                <a href="#" class="text-brand-purple font-semibold hover:text-white transition-colors flex items-center gap-2">View Github <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-video bg-dark-700 border border-white/5" data-aos="fade-up">
+                    <!-- Placeholder for Image -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-purple/20 group-hover:scale-105 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white/20 text-6xl font-heading font-bold">01</span>
+                    </div>
+                    
+                    <!-- Overlay Info -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold mb-2">E-Learning Platform</h3>
+                            <p class="text-gray-300 text-sm mb-4">A complete Learning Management System for schools.</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-brand-cyan hover:text-white font-medium">View Case Study <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-video bg-dark-700 border border-white/5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-purple/20 group-hover:scale-105 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white/20 text-6xl font-heading font-bold">02</span>
+                    </div>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold mb-2">National Assembly Portal</h3>
+                            <p class="text-gray-300 text-sm mb-4">Digital infrastructure for government proceedings.</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-brand-cyan hover:text-white font-medium">View Case Study <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div
-          class="social-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-        >
-          <a
-            href="https://github.com/V667225"
-            target="_blank"
-            class="social-card github"
-          >
-            <div class="icon">git</div>
-            <h3>GitHub</h3>
-            <p>Code & Projects</p>
-          </a>
+    <!-- About Section ("Cinematic Split") -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Profile Image with Cinematic Effects -->
+                <div class="w-full md:w-1/2 relative group" data-aos="fade-right">
+                    <!-- Rotating Glow Ring -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 animate-spin-slow"></div>
+                    
+                    <!-- Image Container -->
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full p-2 border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="images/vince.jpg" alt="Vince Odhiambo" class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out relative z-10">
+                        
+                        <!-- Shine overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full z-20 pointer-events-none"></div>
+                    </div>
 
-          <a
-            href="https://wa.me/+254718896349"
-            target="_blank"
-            class="social-card whatsapp"
-          >
-            <div class="icon">wa</div>
-            <h3>WhatsApp</h3>
-            <p>Quick Chat</p>
-          </a>
+                    <!-- Floating decorative elements -->
+                    <div class="absolute top-10 right-10 w-4 h-4 bg-brand-cyan rounded-full animate-bounce delay-100"></div>
+                    <div class="absolute bottom-10 left-10 w-6 h-6 bg-brand-purple rounded-full animate-pulse delay-300"></div>
+                </div>
 
-          <a
-            href="https://instagram.com/architect.vince"
-            target="_blank"
-            class="social-card instagram"
-          >
-            <div class="icon">ig</div>
-            <h3>Instagram</h3>
-            <p>Daily Updates</p>
-          </a>
+                <!-- Bio Content -->
+                <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">About <span class="text-brand-cyan">Vince</span></h2>
+                    <div class="space-y-6 text-lg text-gray-300 leading-relaxed font-light">
+                        <p>
+                            I am a passionate developer and designer who thrives on creating <span class="text-brand-purple font-semibold">bold</span> digital experiences.
+                        </p>
+                        <blockquote class="text-2xl font-heading font-bold text-white pl-4 border-l-4 border-brand-pink my-8 italic opacity-90">
+                            "I don't just write code; I build solutions that light up the screen."
+                        </blockquote>
+                        <p>
+                            With a focus on <span class="text-brand-pink font-semibold">modern aesthetics</span> and high-performance functionality, I help brands stand out in the dark. My journey has taken me from local advocacy to winning international awards.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer role="contentinfo">
-      <p>&copy; 2026 Vince Odhiambo. All rights reserved.</p>
+    <!-- Connect / Contact -->
+    <section id="contact" class="py-24">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-6xl font-heading font-bold mb-6">Let's <br><span class="text-brand-pink">Connect</span></h2>
+                    <p class="text-xl text-gray-400 mb-10">Have a project in mind? Looking for a collaboration? Just want to say hi?</p>
+                    
+                    <div class="space-y-6">
+                        <a href="mailto:architectvince7@gmail.com" class="flex items-center gap-4 text-gray-300 hover:text-brand-cyan transition-colors group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xl group-hover:bg-brand-cyan group-hover:text-white transition-all">
+                                <i class="ph-bold ph-envelope"></i>
+                            </div>
+                            <span class="text-lg">architectvince7@gmail.com</span>
+                        </a>
+                        <a href="https://wa.me/+254718896349" class="flex items-center gap-4 text-gray-300 hover:text-green-500 transition-colors group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xl group-hover:bg-green-500 group-hover:text-white transition-all">
+                                <i class="ph-bold ph-whatsapp-logo"></i>
+                            </div>
+                            <span class="text-lg">+254 718 896 349</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form class="space-y-6 bg-white/5 p-8 rounded-3xl border border-white/5" data-aos="fade-left">
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-400 ml-1">Your Name</label>
+                        <input type="text" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all" placeholder="John Doe">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-400 ml-1">Email Address</label>
+                        <input type="email" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all" placeholder="john@example.com">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-400 ml-1">Your Message</label>
+                        <textarea rows="4" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="button" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-purple to-brand-pink text-white font-bold hover:shadow-lg hover:shadow-brand-pink/25 transition-all transform hover:-translate-y-1">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Vince Odhiambo. All Rights Reserved.</p>
+        <div class="flex justify-center gap-6 mt-4 text-xl">
+            <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-github-logo"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo"></i></a>
+        </div>
     </footer>
 
-    <script src="script.js" type="module"></script>
-  </body>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
