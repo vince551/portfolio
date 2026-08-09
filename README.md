@@ -2,10 +2,13 @@
 
 # ✦ VINCE // PORTFOLIO
 
-**Full-Stack Developer · Cybersecurity Learner · Builder**
+**FULL-STACK DEVELOPER · CYBERSECURITY LEARNER · BUILDER**
 
-[![Portfolio](https://img.shields.io/badge/LIVE_PORTFOLIO-00FF88?style=for-the-badge&logo=vercel&logoColor=black)](https://portfolio-sage-ten-22.vercel.app/)
+[![Live Portfolio](https://img.shields.io/badge/LIVE_PORTFOLIO-00FF88?style=for-the-badge&logo=vercel&logoColor=050505)](https://portfolio-sage-ten-22.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GITHUB-050505?style=for-the-badge&logo=github&logoColor=00FF88)](https://github.com/vince551)
+[![Status](https://img.shields.io/badge/STATUS-ACTIVE-00FF88?style=for-the-badge)](https://github.com/vince551/portfolio)
+
+> A digital command center for my projects, experiments, skills and technical journey.
 
 </div>
 
@@ -13,22 +16,46 @@
 
 ## `> whoami`
 
-A personal developer portfolio focused on **web engineering, cybersecurity, interactive interfaces, and experimental technology**.
+This repository contains my personal developer portfolio, focused on **modern web engineering, interactive interfaces, cybersecurity learning and experimental technology**.
 
-The site is the public-facing hub for projects, technical experiments, skills, and the journey behind the code.
+### Core focus
 
-## ✦ Focus
+- ⚡ Modern responsive web development
+- 🎨 UI/UX and interaction design
+- 🧠 JavaScript-driven experiences
+- 🔐 Linux and cybersecurity learning
+- 🗄️ Backend and database exploration
+- 🌐 3D / WebGL experiments
+- 🏗️ Technology + architectural design
 
-- Modern responsive web development
-- Interactive UI/UX and visual effects
-- JavaScript-driven experiences
-- Backend and database exploration
-- Linux and cybersecurity learning
-- 3D/web experiences and technical design
+---
 
-## 🚀 Live
+## 🌐 Live Experience
 
-**[Open the portfolio →](https://portfolio-sage-ten-22.vercel.app/)**
+**[→ Open the portfolio](https://portfolio-sage-ten-22.vercel.app/)**
+
+---
+
+## 🧩 Architecture
+
+```text
+Visitor
+  │
+  ├── Landing / Identity
+  ├── About / Skills
+  ├── Projects
+  ├── Experiments
+  └── Contact
+          │
+          ↓
+   Interactive Frontend
+          │
+          ├── UI components
+          ├── Animations
+          └── Responsive layout
+```
+
+> The implementation details may evolve as the portfolio grows.
 
 ## 🛠️ Development
 
@@ -37,18 +64,24 @@ git clone https://github.com/vince551/portfolio.git
 cd portfolio
 ```
 
-Open the project in your preferred editor and use the development workflow required by the project files.
+Then use the project's existing development workflow to run it locally.
 
-## 🧭 Project Philosophy
+## 🚀 Roadmap
 
-> Build things that are useful, understand the systems underneath them, and keep improving the craft.
+- [ ] Add more project case studies
+- [ ] Improve accessibility and performance
+- [ ] Expand interactive 3D experiments
+- [ ] Add deeper project architecture notes
+- [ ] Keep project links and demos current
 
 ## 👨‍💻 Author
 
-**Vince Odhiambo** — web developer, cybersecurity learner and technology builder.
+**Vince Odhiambo**
+
+Full-stack developer · cybersecurity learner · technology builder
 
 [GitHub](https://github.com/vince551) · [Portfolio](https://portfolio-sage-ten-22.vercel.app/)
 
 ---
 
-<p align="center"><sub>Built with curiosity, code and a terminal.</sub></p>
+<p align="center"><sub>Build useful things. Understand the systems underneath. Keep shipping.</sub></p>
