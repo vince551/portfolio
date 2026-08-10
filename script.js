@@ -10,26 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
 
     function setMenu(open) {
+        if (!mobileMenu) return;
         mobileMenu.classList.toggle('translate-x-full', !open);
         mobileMenu.setAttribute('aria-hidden', String(!open));
-        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn?.setAttribute('aria-expanded', String(open));
         document.body.style.overflow = open ? 'hidden' : '';
-        if (open) closeMenuBtn.focus();
-        else menuBtn.focus();
+        if (open) closeMenuBtn?.focus();
+        else menuBtn?.focus();
     }
 
     menuBtn?.addEventListener('click', () => setMenu(true));
     closeMenuBtn?.addEventListener('click', () => setMenu(false));
     mobileLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) setMenu(false);
+        if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('translate-x-full')) setMenu(false);
     });
 
     const updateNavbar = () => {
-        navbar.classList.toggle('shadow-lg', window.scrollY > 50);
-        navbar.classList.toggle('bg-dark-900/95', window.scrollY > 50);
+        const scrolled = window.scrollY > 50;
+        navbar?.classList.toggle('shadow-lg', scrolled);
+        navbar?.classList.toggle('bg-dark-900/95', scrolled);
+        navbar?.classList.toggle('scrolled', scrolled);
+
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+        document.documentElement.style.setProperty('--scroll-progress', `${progress}%`);
     };
     window.addEventListener('scroll', updateNavbar, { passive: true });
+    window.addEventListener('resize', updateNavbar, { passive: true });
     updateNavbar();
 
     const sections = [...document.querySelectorAll('section[id]')];
@@ -38,8 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             navLinks.forEach(link => {
-                link.classList.toggle('text-white', link.getAttribute('href') === `#${entry.target.id}`);
-                link.classList.toggle('text-gray-400', link.getAttribute('href') !== `#${entry.target.id}`);
+                const active = link.getAttribute('href') === `#${entry.target.id}`;
+                link.classList.toggle('text-white', active);
+                link.classList.toggle('text-gray-400', !active);
+                link.setAttribute('aria-current', active ? 'page' : 'false');
             });
         });
     }, { rootMargin: '-35% 0px -55% 0px' });
@@ -55,25 +65,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = form.elements.email.value.trim();
         const message = form.elements.message.value.trim();
         if (!name || !email || !message) {
-            status.textContent = 'Please complete all fields.';
-            status.className = 'text-sm text-center text-brand-pink';
+            if (status) { status.textContent = 'Please complete all fields.'; status.className = 'text-sm text-center text-brand-pink'; }
             return;
         }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            status.textContent = 'Please enter a valid email address.';
-            status.className = 'text-sm text-center text-brand-pink';
+            if (status) { status.textContent = 'Please enter a valid email address.'; status.className = 'text-sm text-center text-brand-pink'; }
             return;
         }
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Opening email...';
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Opening email...'; }
         const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
         window.location.href = `mailto:architectvince7@gmail.com?subject=${subject}&body=${body}`;
-        status.textContent = 'Your email app should open with the message ready to send.';
-        status.className = 'text-sm text-center text-brand-cyan';
+        if (status) { status.textContent = 'Your email app should open with the message ready to send.'; status.className = 'text-sm text-center text-brand-cyan'; }
         setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
         }, 1500);
     });
 
