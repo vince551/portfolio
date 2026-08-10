@@ -1,87 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.AOS) {
-        AOS.init({ once: true, duration: 800, offset: 100 });
-    }
-
-    const menuBtn = document.getElementById('menu-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    const navbar = document.getElementById('navbar');
-
-    function setMenu(open) {
-        if (!mobileMenu) return;
-        mobileMenu.classList.toggle('translate-x-full', !open);
-        mobileMenu.setAttribute('aria-hidden', String(!open));
-        menuBtn?.setAttribute('aria-expanded', String(open));
-        document.body.style.overflow = open ? 'hidden' : '';
-        if (open) closeMenuBtn?.focus();
-        else menuBtn?.focus();
-    }
-
-    menuBtn?.addEventListener('click', () => setMenu(true));
-    closeMenuBtn?.addEventListener('click', () => setMenu(false));
-    mobileLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('translate-x-full')) setMenu(false);
-    });
-
-    const updateNavbar = () => {
-        const scrolled = window.scrollY > 50;
-        navbar?.classList.toggle('shadow-lg', scrolled);
-        navbar?.classList.toggle('bg-dark-900/95', scrolled);
-        navbar?.classList.toggle('scrolled', scrolled);
-
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
-        document.documentElement.style.setProperty('--scroll-progress', `${progress}%`);
-    };
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-    window.addEventListener('resize', updateNavbar, { passive: true });
-    updateNavbar();
-
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.nav-link')];
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            navLinks.forEach(link => {
-                const active = link.getAttribute('href') === `#${entry.target.id}`;
-                link.classList.toggle('text-white', active);
-                link.classList.toggle('text-gray-400', !active);
-                link.setAttribute('aria-current', active ? 'page' : 'false');
-            });
-        });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach(section => observer.observe(section));
-
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-    const submitBtn = document.getElementById('submit-btn');
-
-    form?.addEventListener('submit', event => {
-        event.preventDefault();
-        const name = form.elements.name.value.trim();
-        const email = form.elements.email.value.trim();
-        const message = form.elements.message.value.trim();
-        if (!name || !email || !message) {
-            if (status) { status.textContent = 'Please complete all fields.'; status.className = 'text-sm text-center text-brand-pink'; }
-            return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            if (status) { status.textContent = 'Please enter a valid email address.'; status.className = 'text-sm text-center text-brand-pink'; }
-            return;
-        }
-        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Opening email...'; }
-        const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:architectvince7@gmail.com?subject=${subject}&body=${body}`;
-        if (status) { status.textContent = 'Your email app should open with the message ready to send.'; status.className = 'text-sm text-center text-brand-cyan'; }
-        setTimeout(() => {
-            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
-        }, 1500);
-    });
-
-    const year = document.getElementById('year');
-    if (year) year.textContent = new Date().getFullYear();
-});
+document.addEventListener('DOMContentLoaded',()=>{
+if(window.AOS)AOS.init({once:true,duration:850,offset:90});
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const menuBtn=$('#menu-btn'),closeBtn=$('#close-menu-btn'),menu=$('#mobile-menu'),mobileLinks=$$('.mobile-link'),navbar=$('#navbar');
+function setMenu(open){if(!menu)return;menu.classList.toggle('translate-x-full',!open);menu.setAttribute('aria-hidden',String(!open));menuBtn?.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'';if(open)closeBtn?.focus();else menuBtn?.focus()}
+menuBtn?.addEventListener('click',()=>setMenu(true));closeBtn?.addEventListener('click',()=>setMenu(false));mobileLinks.forEach(x=>x.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu&&!menu.classList.contains('translate-x-full'))setMenu(false)});
+const progress=$('#scroll-progress');function scrollUI(){const max=document.documentElement.scrollHeight-innerHeight;progress&&(progress.style.width=(max>0?scrollY/max*100:0)+'%');navbar?.classList.toggle('shadow-2xl',scrollY>45);navbar?.classList.toggle('bg-dark-900/95',scrollY>45)}addEventListener('scroll',scrollUI,{passive:true});scrollUI();
+const sections=$$('section[id]'),links=$$('.nav-link');const sectionObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;links.forEach(l=>{const active=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('text-white',active);l.classList.toggle('text-gray-400',!active);l.setAttribute('aria-current',active?'page':'false')})}),{rootMargin:'-35% 0px -55% 0px'});sections.forEach(s=>sectionObserver.observe(s));
+$$('[data-tilt]').forEach(card=>{card.addEventListener('pointermove',e=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg) translateY(-4px)`});card.addEventListener('pointerleave',()=>card.style.transform='')});
+const form=$('#contact-form'),status=$('#form-status'),submit=$('#submit-btn');form?.addEventListener('submit',e=>{e.preventDefault();const name=form.elements.name.value.trim(),email=form.elements.email.value.trim(),message=form.elements.message.value.trim();if(!name||!email||!message){status.textContent='Please complete all fields.';status.className='text-sm text-brand-pink';return}if(!/^\S+@\S+\.\S+$/.test(email)){status.textContent='Please enter a valid email address.';status.className='text-sm text-brand-pink';return}submit.disabled=true;submit.innerHTML='Opening email...';const subject=encodeURIComponent('Portfolio enquiry from '+name),body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);location.href=`mailto:architectvince7@gmail.com?subject=${subject}&body=${body}`;status.textContent='Your email app should open with the message ready to send.';status.className='text-sm text-brand-cyan';setTimeout(()=>{submit.disabled=false;submit.innerHTML='Send Enquiry <i class="ph-bold ph-paper-plane-right"></i>'},1600)});
+const year=$('#year');if(year)year.textContent=new Date().getFullYear();
+function init3D(){if(!window.THREE||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const host=$('#three-bg');if(!host)return;const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);camera.position.z=8;const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);host.appendChild(renderer.domElement);const group=new THREE.Group();scene.add(group);const geo=new THREE.IcosahedronGeometry(2.6,1),mat=new THREE.MeshBasicMaterial({color:0x8b5cf6,wireframe:true,transparent:true,opacity:.09});group.add(new THREE.Mesh(geo,mat));const dots=new THREE.BufferGeometry(),count=140,pos=new Float32Array(count*3);for(let i=0;i<count;i++){pos[i*3]=(Math.random()-.5)*18;pos[i*3+1]=(Math.random()-.5)*12;pos[i*3+2]=(Math.random()-.5)*10}dots.setAttribute('position',new THREE.BufferAttribute(pos,3));scene.add(new THREE.Points(dots,new THREE.PointsMaterial({color:0x06b6d4,size:.025,transparent:true,opacity:.45})));let mx=0,my=0;addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*.6;my=(e.clientY/innerHeight-.5)*.35},{passive:true});function frame(t){group.rotation.x+=.00025;group.rotation.y+=.00045;group.rotation.y+=(mx-group.rotation.y)*.002;group.rotation.x+=(my-group.rotation.x)*.002;renderer.render(scene,camera);requestAnimationFrame(frame)}requestAnimationFrame(frame);addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)},{passive:true})}init3D();});
