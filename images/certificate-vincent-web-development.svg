@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f4f6fb"/></linearGradient>
+  <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#152d62"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#b98218"/><stop offset=".5" stop-color="#f0c65a"/><stop offset="1" stop-color="#a46d0c"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1400" height="1000" fill="url(#bg)"/>
+<rect x="24" y="24" width="1352" height="952" rx="8" fill="none" stroke="#0b1d40" stroke-width="8"/>
+<rect x="42" y="42" width="1316" height="916" rx="4" fill="none" stroke="url(#gold)" stroke-width="3"/>
+<path d="M0 0H520L0 360Z" fill="url(#navy)"/><path d="M0 0H570L0 395" fill="none" stroke="url(#gold)" stroke-width="22" opacity=".95"/>
+<path d="M1400 1000H900L1400 640Z" fill="url(#navy)"/><path d="M1400 1000H830L1400 590" fill="none" stroke="url(#gold)" stroke-width="22" opacity=".95"/>
+<g font-family="Georgia,serif" text-anchor="middle" fill="#0b1d40">
+  <text x="700" y="145" font-size="42" font-weight="700" letter-spacing="7">INDEPENDENT DEVELOPER ACHIEVEMENT</text>
+  <line x1="480" y1="170" x2="920" y2="170" stroke="url(#gold)" stroke-width="4"/>
+  <text x="700" y="245" font-size="82" font-weight="700" letter-spacing="9">CERTIFICATE</text>
+  <text x="700" y="295" font-size="30" fill="#a46d0c" letter-spacing="8">OF WEB DEVELOPMENT</text>
+  <text x="700" y="355" font-size="23" letter-spacing="3">THIS IS TO CERTIFY THAT</text>
+  <text x="700" y="445" font-size="64" font-style="italic">Vincent Odhiambo Odhiambo</text>
+  <line x1="260" y1="470" x2="1140" y2="470" stroke="#b98218" stroke-width="2"/>
+  <text x="700" y="525" font-size="25">has demonstrated practical proficiency in modern web development</text>
+  <text x="700" y="565" font-size="22" fill="#34425b">HTML5  •  CSS3  •  JavaScript  •  Responsive Design  •  Git &amp; GitHub</text>
+  <text x="700" y="600" font-size="22" fill="#34425b">Frontend Development  •  APIs  •  Deployment  •  Web Applications</text>
+  <text x="700" y="650" font-size="20" fill="#59657a">Recognizing commitment to continuous learning, project building and technical growth.</text>
+</g>
+<g transform="translate(700 775)">
+ <circle r="82" fill="url(#navy)" stroke="url(#gold)" stroke-width="8" filter="url(#shadow)"/>
+ <circle r="62" fill="none" stroke="#e9c45a" stroke-width="2"/>
+ <text y="-12" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" fill="#fff" font-weight="700">&lt;/&gt;</text>
+ <text y="28" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#e9c45a" letter-spacing="2">BUILD • LEARN • GROW</text>
+</g>
+<g font-family="Arial,sans-serif" fill="#0b1d40">
+ <text x="150" y="755" font-size="16" font-weight="700">CERTIFICATE ID</text><text x="150" y="785" font-size="18" fill="#a46d0c">VINCE-WEB-2026-001</text>
+ <text x="150" y="830" font-size="16" font-weight="700">ISSUED</text><text x="150" y="860" font-size="18">15 August 2026</text>
+ <text x="1050" y="755" font-size="16" font-weight="700">VERIFICATION</text><text x="1050" y="785" font-size="17">Independent portfolio record</text><text x="1050" y="815" font-size="15" fill="#59657a">vince551.github.io/portfolio</text>
+</g>
+<text x="700" y="920" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#6b7485">This is an independent achievement certificate and is not issued by or affiliated with Moringa School or another institution.</text>
+</svg>
