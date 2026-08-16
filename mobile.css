@@ -1,0 +1,86 @@
+/* Mobile responsiveness layer — loaded separately so the desktop stylesheet remains untouched. */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { overflow-x: hidden; }
+  #three-bg { opacity: .28; }
+  .container { width: 100%; max-width: 100%; padding-left: 16px; padding-right: 16px; }
+  .portrait-shell { width: min(290px, 78vw); margin-inline: auto; }
+  .contact-panel { grid-template-columns: 1fr; padding: 22px 18px; gap: 28px; }
+  .premium-card { min-height: auto; padding: 22px; border-radius: 18px; }
+  .premium-card .card-index { margin-bottom: 30px; }
+  .premium-card h3 { font-size: 22px; }
+  .premium-card p { font-size: 13px; line-height: 1.7; }
+  .service-card { padding: 20px; }
+  .service-card h3 { font-size: 20px; margin-top: 18px; }
+  .service-card p { font-size: 13px; }
+  .hero-orbit-one { width: 360px; height: 360px; }
+  .hero-orbit-two { width: 500px; height: 500px; }
+  .hero-trust { gap: 8px 14px; flex-wrap: wrap; }
+  .hero-trust span { font-size: 9px; }
+  .eyebrow-line, .section-kicker { font-size: 9px; }
+  .timeline { padding-left: 21px; }
+  .timeline-item:before { left: -27px; }
+  .timeline-item { padding-bottom: 34px; }
+  .timeline-item h3 { font-size: 19px; }
+  .timeline-item p { font-size: 13px; line-height: 1.7; }
+  .project-visual { height: 190px; }
+  .project-visual i { font-size: 48px; }
+  .project-card { border-radius: 18px; }
+  .project-card h3 { font-size: 22px; }
+  .project-card p { font-size: 13px; line-height: 1.7; }
+  .project-number { right: 16px; top: 14px; }
+  .case-image { aspect-ratio: 16 / 10; }
+  .case-modal { padding: 10px; }
+  .case-dialog { width: 100%; max-height: 94vh; border-radius: 20px; padding: 14px; }
+  .case-modal-grid { grid-template-columns: 1fr; gap: 20px; }
+  .case-modal-grid h2 { font-size: 32px; }
+  .case-modal-desc { font-size: 13px; line-height: 1.7; }
+  .case-modal-list { margin: 16px 0; }
+  .case-modal-list div { padding: 10px 0; font-size: 12px; }
+  .case-close { width: 38px; height: 38px; right: 12px; top: 12px; }
+  .case-actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .case-open, .case-repo, .contact-link { min-height: 44px; }
+  .premium-btn, .premium-outline-btn { min-height: 48px; }
+  .contact-form { padding: 20px 16px; }
+  .contact-form input, .contact-form textarea { font-size: 16px; }
+  .nav-menu { width: calc(100vw - 32px); max-width: none; }
+  .nav-menu a { padding: 12px 10px; }
+  .brand-mark { font-size: 12px; letter-spacing: .09em; }
+  .portrait-tag { right: 0; bottom: 22px; font-size: 8px; padding: 8px 10px; }
+  .chips { gap: 6px; }
+  .chips span { font-size: 9px; padding: 5px 8px; }
+  .social-rail { display: none; }
+}
+
+@media (max-width: 380px) {
+  .hero-trust { display: none; }
+  .premium-card { padding: 18px; }
+  .premium-card h3 { font-size: 20px; }
+  .portrait-shell { width: 255px; }
+  .project-visual { height: 170px; }
+  .project-visual i { font-size: 42px; }
+  .contact-panel { padding: 18px 14px; }
+  .premium-btn, .premium-outline-btn { width: 100%; }
+  .chips span { font-size: 8px; }
+  .case-dialog { padding: 12px; }
+  .case-modal-grid h2 { font-size: 28px; }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .contact-panel { grid-template-columns: 1fr; }
+  .case-modal-grid { grid-template-columns: 1fr; }
+}
+
+@media (pointer: coarse) {
+  [data-tilt] { transform: none !important; }
+  .premium-card:hover, .project-card:hover, .service-card:hover { transform: none; }
+  .case-image-button:hover .case-image { transform: none; }
+  .premium-btn:hover, .premium-outline-btn:hover, .contact-link:hover { transform: none; }
+  .portrait-frame:hover img { transform: none; filter: grayscale(35%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .premium-btn, .premium-outline-btn, .premium-card, .project-card, .service-card, .case-image, .portrait-frame img { transition: none !important; }
+  .hero-orbit, .brand-pulse { animation: none !important; }
+}
