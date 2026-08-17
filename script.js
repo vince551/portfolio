@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 if(window.AOS)AOS.init({once:true,duration:850,offset:90});
 const premiumSheet=document.createElement('link');premiumSheet.rel='stylesheet';premiumSheet.href='premium.css';document.head.appendChild(premiumSheet);
+const polishSheet=document.createElement('link');polishSheet.rel='stylesheet';polishSheet.href='polish.css';document.head.appendChild(polishSheet);
 const navbar=$('#navbar'),menuBtn=$('#menu-btn'),closeBtn=$('#close-menu-btn'),menu=$('#mobile-menu');
 const setMenu=open=>{if(!menu)return;menu.classList.toggle('translate-x-full',!open);menu.setAttribute('aria-hidden',String(!open));menuBtn?.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':''};
 menuBtn?.addEventListener('click',()=>setMenu(true));closeBtn?.addEventListener('click',()=>setMenu(false));$$('.mobile-link').forEach(x=>x.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
