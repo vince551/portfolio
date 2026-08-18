@@ -1,5 +1,73 @@
-/* FINAL MOBILE + PREMIUM POLISH */
-:root{--lime:#c8f36b;--green:#18a957;--green2:#0b7d3c}
-@media(max-width:900px){.topbar{top:10px;width:calc(100% - 24px);padding:8px 9px 8px 16px;min-height:58px}.logo{font-size:14px}.nav .talk{padding:11px 18px;font-size:12px}.menu{font-size:27px;padding:5px 8px}.hero{min-height:auto;padding:125px 0 74px}.hero-grid{gap:34px}.hero h1{font-size:clamp(48px,14vw,68px);line-height:.94;letter-spacing:-.075em;margin-top:17px}.hero-copy{font-size:16px;line-height:1.65;max-width:620px}.actions{margin-top:26px;gap:10px}.btn{padding:14px 18px;font-size:12px}.hero-note{margin-top:28px;gap:10px 18px;line-height:1.7}.portrait{width:min(390px,92vw);margin:8px auto 0}.portrait-card{transform:rotate(1deg);border-radius:32px;box-shadow:0 25px 70px rgba(10,30,18,.14)}.leaf{width:135px;height:135px;right:-42px;top:-40px}.ring{width:145px;height:145px;left:-55px;bottom:-50px}.mobile-dock{left:50%;right:auto;bottom:12px;transform:translateX(-50%);width:min(92vw,520px);padding:7px;border-radius:20px}.mobile-dock a{min-width:68px;padding:7px 10px}main{padding-bottom:76px}}
-@media(max-width:620px){.wrap{width:calc(100% - 28px)}.topbar{width:calc(100% - 18px);top:8px}.nav .talk{padding:11px 17px}.hero{padding-top:112px;padding-bottom:58px;background:radial-gradient(circle at 85% 15%,rgba(24,169,87,.13),transparent 32%),linear-gradient(180deg,#f7fbf8 0%,#fff 72%)}.hero h1{font-size:clamp(46px,13.5vw,60px)}.hero-copy{font-size:15.5px}.actions{display:grid;grid-template-columns:1fr 1fr}.btn{justify-content:center;min-height:52px}.hero-note{font-size:9px;letter-spacing:.075em;justify-content:flex-start}.portrait{width:calc(100% - 12px)}.portrait-card{aspect-ratio:4/4.8;border-radius:28px}.portrait-label{left:14px;bottom:14px;padding:9px 11px;font-size:9px}.section{padding:82px 0}.section h2{font-size:clamp(38px,11vw,52px)}.mobile-dock{bottom:9px;width:calc(100% - 24px);border-radius:18px}.mobile-dock a{font-size:8px}.mobile-dock a b{font-size:17px}}
-.btn,.build,.project,.form,.portrait-card{will-change:transform}.btn:focus-visible,.nav a:focus-visible,.mobile-dock a:focus-visible,.menu:focus-visible{outline:3px solid rgba(24,169,87,.28);outline-offset:3px}.project,.build{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}.project:hover,.build:hover{transform:translateY(-7px)}.portrait-card{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}.portrait-card:hover{transform:rotate(0deg) translateY(-5px);box-shadow:0 32px 90px rgba(10,30,18,.17)}@media(prefers-reduced-motion:reduce){.portrait-card,.project,.build{transition:none}.portrait-card:hover,.project:hover,.build:hover{transform:none}}
+/* PREMIUM TECH + ARCHITECTURE ART DIRECTION */
+:root{--arch-purple:#8b5cf6;--arch-violet:#a78bfa;--arch-pink:#ec4899;--arch-cyan:#22d3ee;--arch-ink:#09090b;--arch-line:rgba(255,255,255,.09);--arch-glass:rgba(15,15,22,.72)}
+
+/* Blueprint atmosphere */
+body{background:#09090b!important;position:relative}
+body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.22;background-image:linear-gradient(rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:80px 80px,80px 80px,20px 20px,20px 20px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
+
+/* Glass navigation */
+.topbar{background:rgba(9,9,14,.78)!important;border:1px solid rgba(255,255,255,.1)!important;backdrop-filter:blur(24px) saturate(140%);box-shadow:0 18px 60px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.05)!important}
+.topbar:before{content:'⌁';position:absolute;left:7px;top:50%;transform:translateY(-52%);font-size:12px;color:var(--arch-cyan);opacity:.8}
+.logo{padding-left:13px}
+.nav a{transition:.25s cubic-bezier(.2,.7,.2,1)}.nav a:hover{transform:translateY(-1px)}
+
+/* Hero = developer workstation + architectural studio */
+.hero{isolation:isolate;background:radial-gradient(circle at 78% 25%,rgba(139,92,246,.18),transparent 28%),radial-gradient(circle at 20% 80%,rgba(34,211,238,.055),transparent 24%),#09090b!important}
+.hero:after{content:'ARCH / 01';position:absolute;right:5%;bottom:8%;font:700 9px 'Space Grotesk';letter-spacing:.2em;color:rgba(255,255,255,.2);writing-mode:vertical-rl}
+.hero-grid{position:relative}
+.hero-grid:after{content:'DESIGN  •  CODE  •  STRUCTURE';position:absolute;left:0;bottom:-48px;font:600 8px 'Space Grotesk';letter-spacing:.2em;color:#66616e}
+.eyebrow,.kicker{font-size:9px;letter-spacing:.2em}
+.eyebrow:before{color:var(--arch-cyan)!important}
+.hero h1{letter-spacing:-.075em;text-wrap:balance}
+.hero h1 .accent{background:linear-gradient(110deg,var(--arch-violet),var(--arch-purple) 48%,var(--arch-pink));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 25px rgba(139,92,246,.18))}
+.hero-copy{max-width:650px}
+.hero-note span{padding:6px 10px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.025)}
+
+/* Cute floating architecture labels */
+.portrait-shell:after{content:'01 / PORTRAIT';position:absolute;right:-8px;top:8%;padding:7px 9px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(9,9,14,.72);backdrop-filter:blur(12px);font:600 7px 'Space Grotesk';letter-spacing:.14em;color:#9b94a8;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.portrait-orbit-badge{border-color:rgba(167,139,250,.2)!important;background:rgba(12,10,18,.78)!important;color:#c7bdd8!important}
+.portrait-orbit-one{box-shadow:0 0 20px rgba(34,211,238,.08)}.portrait-orbit-two{box-shadow:0 0 20px rgba(139,92,246,.1)}.portrait-orbit-three{box-shadow:0 0 20px rgba(236,72,153,.08)}
+
+/* Section labels become drawing-sheet annotations */
+.section{position:relative}
+.section:before{content:'┌  ─────────────────────────────────────────  ┐';position:absolute;top:26px;left:0;font:500 8px monospace;color:rgba(255,255,255,.08);letter-spacing:.08em;white-space:nowrap;overflow:hidden;width:100%}
+.section-kicker{font-family:'Space Grotesk',sans-serif!important;letter-spacing:.18em!important}
+.section-kicker:before{background:linear-gradient(90deg,var(--arch-cyan),var(--arch-purple))!important}
+.section h2{position:relative}
+.section h2:after{content:'✦';position:absolute;margin-left:12px;top:-7px;font-size:11px;color:var(--arch-cyan);opacity:.65}
+
+/* Cards: softer, cuter, more tactile */
+.build,.project-card,.premium-card,.service-card,.stat-card,.proof-card,.explore-card{border-color:rgba(255,255,255,.085)!important;background:linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.015))!important;box-shadow:0 18px 55px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.035)}
+.build,.project-card,.premium-card,.service-card{border-radius:26px!important;overflow:hidden}
+.build:hover,.project-card:hover,.premium-card:hover,.service-card:hover{border-color:rgba(139,92,246,.3)!important;box-shadow:0 28px 85px rgba(0,0,0,.35),0 0 35px rgba(139,92,246,.055);transform:translateY(-7px) scale(1.008)}
+.build-num,.project-number,.card-index{font-family:monospace!important;color:#6e6878!important}
+
+/* Architecture / CAD motif on project visuals */
+.project-visual,.case-image-button{position:relative;isolation:isolate;overflow:hidden}
+.project-visual:before,.case-image-button:before{content:'';position:absolute;inset:12px;border:1px solid rgba(255,255,255,.08);background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:24px 24px;opacity:.6;pointer-events:none;z-index:1}
+.project-visual:after,.case-image-button:after{content:'VIEW / CASE STUDY  ↗';position:absolute;right:14px;bottom:14px;padding:8px 11px;border:1px solid rgba(167,139,250,.22);border-radius:999px;background:rgba(8,8,12,.74);backdrop-filter:blur(12px);font:600 8px 'Space Grotesk';letter-spacing:.1em;color:#d7d0e3;z-index:4;opacity:0;transform:translateY(7px);transition:.3s}
+.project-card:hover .project-visual:after,.case-image-button:hover:after{opacity:1;transform:none}
+.case-image{transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .5s}.case-image-button:hover .case-image{transform:scale(1.035);filter:saturate(1.08) contrast(1.04)}
+
+/* Tech-stack chips */
+.chips span,.stack span{border-color:rgba(139,92,246,.14)!important;background:rgba(139,92,246,.045)!important;color:#9e97aa!important;transition:.25s}
+.chips span:hover,.stack span:hover{border-color:rgba(34,211,238,.25)!important;color:#ddd!important;transform:translateY(-1px)}
+
+/* Timeline / architecture process */
+.timeline-item{position:relative}.timeline-item:after{content:'→';position:absolute;right:0;top:20px;color:#4d4656;font:12px monospace;transition:.25s}.timeline-item:hover:after{color:var(--arch-cyan);transform:translateX(4px)}
+
+/* Contact becomes a terminal-like studio desk */
+.contact-panel{border:1px solid rgba(139,92,246,.15)!important;background:linear-gradient(145deg,rgba(139,92,246,.09),rgba(255,255,255,.025))!important}
+.contact-panel:before{background:radial-gradient(circle,rgba(34,211,238,.12),rgba(139,92,246,.14),transparent 68%)!important}
+.contact-panel:after{content:'< BUILD / TOGETHER >'!important;font-family:monospace!important;color:rgba(255,255,255,.035)!important}
+.contact-form{border-color:rgba(255,255,255,.08)!important;background:rgba(7,7,11,.52)!important;backdrop-filter:blur(18px)}
+
+/* Micro-interactions */
+.btn,.nav a,.case-open,.case-repo,.premium-btn{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background .25s,border-color .25s}.btn:hover,.case-open:hover,.case-repo:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(110deg,#7c3aed,#ec4899)!important;box-shadow:0 14px 40px rgba(139,92,246,.25)!important}
+.btn.primary:hover{box-shadow:0 20px 55px rgba(139,92,246,.4)!important}
+
+/* Mobile */
+@media(max-width:900px){.topbar{top:10px;width:calc(100% - 22px);min-height:56px}.hero{padding-top:125px}.hero-grid:after{bottom:-30px}.section{padding:92px 0}.section:before{top:18px}.project-card,.build,.premium-card,.service-card{border-radius:22px!important}}
+@media(max-width:620px){body:after{background-size:56px 56px,56px 56px,18px 18px,18px 18px;opacity:.14}.hero{padding-top:112px;padding-bottom:65px}.hero-grid:after{display:none}.hero:after{right:12px;bottom:4%;font-size:7px}.hero h1{font-size:clamp(45px,13.5vw,62px)}.hero-copy{font-size:15.5px}.hero-note{gap:7px}.hero-note span{padding:5px 8px}.section{padding:78px 0}.section:before{font-size:6px;top:12px}.section h2:after{font-size:9px;margin-left:7px}.portrait-shell:after{right:0;font-size:6px}.build:hover,.project-card:hover,.premium-card:hover,.service-card:hover{transform:translateY(-4px)}.project-visual:before,.case-image-button:before{inset:8px;background-size:18px 18px}.project-visual:after,.case-image-button:after{opacity:1;transform:none;font-size:7px;padding:7px 9px}.timeline-item:after{display:none}.contact-panel:after{font-size:24px!important}}
+@media(prefers-reduced-motion:reduce){.build:hover,.project-card:hover,.premium-card:hover,.service-card:hover,.btn:hover,.case-open:hover,.case-repo:hover{transform:none}.case-image-button:hover .case-image{transform:none}}
