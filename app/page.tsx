@@ -2,35 +2,228 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, BriefcaseBusiness, Code2, Github, Instagram, Mail, Menu, X } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Code2,
+  Github,
+  Instagram,
+  Menu,
+  X,
+} from "lucide-react";
 
 const projects = [
-  { number:"01", title:"Charity Donation Platform", description:"A polished donation experience focused on trust, clarity and accessible giving.", image:"/images/KVD.jpg", stack:["HTML","CSS","JavaScript"], href:"https://vince551.github.io/charity-donation/", github:"https://github.com/vince551/charity-donation" },
-  { number:"02", title:"Pitch Kings League", description:"A football tournament experience for teams, fixtures, standings and competition management.", image:"/images/Kb Yusuf furniture.jpg", stack:["HTML","CSS","JavaScript"], href:"#", github:"https://github.com/vince551" },
-  { number:"03", title:"Employee Management System", description:"An enterprise-style interface for employee, department and workplace operations.", image:"/images/Certificate.jpg", stack:["Next.js","TypeScript","UI/UX"], href:"#", github:"https://github.com/vince551/EMS" },
+  {
+    number: "01",
+    title: "Charity Donation Platform",
+    description: "A focused giving experience designed around trust, clarity and frictionless action.",
+    image: "/images/KVD.jpg",
+    stack: ["HTML", "CSS", "JavaScript"],
+    href: "https://vince551.github.io/charity-donation/",
+    github: "https://github.com/vince551/charity-donation",
+  },
+  {
+    number: "02",
+    title: "Pitch Kings League",
+    description: "A football tournament interface for fixtures, teams, standings and competition management.",
+    image: "/images/Kb Yusuf furniture.jpg",
+    stack: ["HTML", "CSS", "JavaScript"],
+    href: "#",
+    github: "https://github.com/vince551",
+  },
+  {
+    number: "03",
+    title: "Employee Management System",
+    description: "An enterprise-style product concept for employee, department and workplace operations.",
+    image: "/images/Certificate.jpg",
+    stack: ["Next.js", "TypeScript", "UI/UX"],
+    href: "#",
+    github: "https://github.com/vince551/EMS",
+  },
 ];
-const skills = [["Frontend","HTML · CSS · JavaScript · Responsive UI"],["Modern web","Next.js · TypeScript · Git · APIs"],["Design","UI/UX · Visual systems · Design thinking"],["Architecture","Technical drawing · Spatial thinking · Design"]];
 
-export default function Home(){
-  const [open,setOpen]=useState(false); const close=()=>setOpen(false);
-  return <main>
-    <header className="site-header"><div className="container nav-wrap"><a className="brand" href="#top" onClick={close}>VO<span>.</span></a><nav className={open?"nav-links open":"nav-links"}><a href="#about" onClick={close}>About</a><a href="#work" onClick={close}>Work</a><a href="#leadership" onClick={close}>Leadership</a><a href="#contact" onClick={close}>Contact</a></nav><a className="nav-cta" href="#contact">Let&apos;s talk <ArrowUpRight size={15}/></a><button className="menu-button" aria-label="Toggle navigation" onClick={()=>setOpen(!open)}>{open?<X size={21}/>:<Menu size={21}/>}</button></div></header>
+const skills = [
+  ["01", "Frontend", "HTML, CSS, JavaScript, responsive interfaces"],
+  ["02", "Product", "Next.js, TypeScript, APIs, Git and deployment"],
+  ["03", "Design", "UI/UX, visual systems and interaction design"],
+  ["04", "Architecture", "Technical drawing, spatial thinking and design"],
+];
 
-    <section id="top" className="hero section-grid"><div className="container hero-inner"><div className="hero-copy"><div className="eyebrow"><span className="status-dot"/> Building digital experiences</div><p className="hero-index">PORTFOLIO / 2026</p><h1>Vincent<br/><span>Odhiambo.</span></h1><p className="hero-role">Web Developer <i>·</i> Aspiring Architect <i>·</i> Children&apos;s Rights Advocate</p><p className="hero-text">I build thoughtful digital products while developing toward a future in architecture — combining technology, design and leadership to solve real problems.</p><div className="actions"><a className="button primary" href="#work">Explore my work <ArrowUpRight size={16}/></a><a className="button secondary" href="#contact">Start a conversation</a></div><div className="hero-meta"><div><strong>06+</strong><span>Years leadership</span></div><div><strong>03+</strong><span>Selected builds</span></div><div><strong>01</strong><span>Clear direction</span></div></div></div>
-      <aside className="profile-card" aria-label="Vincent Odhiambo profile"><Image src="/images/vince.jpg" alt="Vincent Odhiambo" fill priority sizes="(max-width:900px) 90vw, 38vw" style={{objectFit:"cover",opacity:.72}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,rgba(7,7,10,.05),rgba(7,7,10,.82))"}}/><div className="profile-top"><span>VINCENT / 001</span><span>KENYA</span></div><div style={{position:"absolute",left:20,right:20,bottom:22,zIndex:3}}><small style={{color:"#8f8f9a",fontSize:9,textTransform:"uppercase",letterSpacing:".13em"}}>Currently</small><strong style={{display:"block",fontFamily:"var(--font-space)",fontSize:20,marginTop:6}}>Student · JOBO</strong><span style={{display:"block",color:"#aaaab3",fontSize:11,marginTop:5}}>Web development · Architecture · Leadership</span></div></aside>
-    </div></section>
+export default function Home() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
-    <section id="about" className="section"><div className="container split"><div className="section-label"><span>01</span> ABOUT</div><div className="content-column"><span className="kicker">DESIGNER / DEVELOPER / FUTURE ARCHITECT</span><h2>I build for the web now.<br/><em>I&apos;m designing for the future.</em></h2><p>I&apos;m Vincent Odhiambo, a JOBO student growing as a web developer while working toward architecture. My interests sit where technology, visual design, spatial thinking and problem solving meet.</p><p>My leadership journey has also shaped how I communicate, represent people and turn ideas into action.</p><div className="about-facts"><div><small>Education</small><strong>JOBO Student</strong></div><div><small>Direction</small><strong>Architecture</strong></div><div><small>Base</small><strong>Kenya</strong></div></div></div></div></section>
+  return (
+    <main>
+      <header className="site-header">
+        <div className="container nav-wrap">
+          <a className="brand" href="#top" onClick={close} aria-label="Vincent Odhiambo home">
+            V<span>O</span>
+          </a>
 
-    <section className="section section-dark"><div className="container"><div className="section-heading"><div><span>02 / CAPABILITIES</span><h2>What I bring</h2></div><p>A focused toolkit built around useful digital products and design.</p></div><div className="skills-grid">{skills.map(([title,text],i)=><article className="skill-card" key={title}><span className="card-number">0{i+1}</span><div className="skill-icon">{i<2?<Code2/>:<span>✦</span>}</div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+          <nav className={open ? "nav-links open" : "nav-links"} aria-label="Main navigation">
+            <a href="#about" onClick={close}>About</a>
+            <a href="#capabilities" onClick={close}>Capabilities</a>
+            <a href="#work" onClick={close}>Work</a>
+            <a href="#contact" onClick={close}>Contact</a>
+          </nav>
 
-    <section id="work" className="section"><div className="container"><div className="section-heading work-heading"><div><span>03 / SELECTED WORK</span><h2>Built, not just imagined.</h2></div><p>Projects are the proof. Explore the work and the code behind it.</p></div><div className="projects-list">{projects.map(p=><article className="project-row" key={p.number}><div className="project-number">{p.number}</div><div className="project-main"><div style={{display:"grid",gridTemplateColumns:"150px 1fr",gap:22,alignItems:"center"}}><div style={{height:100,position:"relative",borderRadius:12,overflow:"hidden",border:"1px solid var(--line)"}}><Image src={p.image} alt={p.title} fill sizes="150px" style={{objectFit:"cover"}}/></div><div><h3>{p.title}</h3><p>{p.description}</p></div></div><div className="stack">{p.stack.map(x=><span key={x}>{x}</span>)}</div></div><div className="project-actions">{p.href!=="#"&&<a href={p.href} target="_blank" rel="noreferrer">Live <ArrowUpRight size={15}/></a>}<a href={p.github} target="_blank" rel="noreferrer"><Github size={15}/> Code</a></div></article>)}</div><a className="all-work" href="https://github.com/vince551" target="_blank" rel="noreferrer">Explore the full GitHub <ArrowUpRight size={16}/></a></div></section>
+          <a className="nav-cta" href="#contact">
+            Start a project <ArrowUpRight size={15} />
+          </a>
+          <button className="menu-button" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </header>
 
-    <section id="leadership" className="section section-dark"><div className="container split leadership"><div className="section-label"><span>04</span> LEADERSHIP</div><div className="content-column"><span className="award-kicker">LEADERSHIP / RECOGNITION</span><h2>Impact beyond the screen.</h2><p>I am serving my sixth year as Deputy Speaker of the Nairobi Children Assembly, developing experience in public speaking, representation, teamwork and advocacy.</p><div className="award-card"><div className="award-symbol">★</div><div><small>Recognition</small><strong>Youngest Children&apos;s Rights Advocate in Kenya</strong><p>A milestone representing my commitment to children&apos;s rights and youth leadership.</p></div></div></div></div></section>
+      <section id="top" className="hero">
+        <div className="hero-orbit orbit-one" />
+        <div className="hero-orbit orbit-two" />
+        <div className="container hero-inner">
+          <div className="hero-copy">
+            <div className="eyebrow"><span /> Available for selected projects</div>
+            <p className="hero-index">PORTFOLIO / 2026 — NAIROBI, KENYA</p>
+            <h1>Vincent<br /><span>Odhiambo.</span></h1>
+            <div className="hero-role">WEB DEVELOPER <i>×</i> FUTURE ARCHITECT <i>×</i> CREATIVE BUILDER</div>
+            <p className="hero-text">
+              I design and build digital experiences with the same mindset I bring to architecture: structure, intention and a sharp eye for detail.
+            </p>
+            <div className="actions">
+              <a className="button primary" href="#work">View selected work <ArrowUpRight size={16} /></a>
+              <a className="button secondary" href="#about">About me <ArrowDownRight size={16} /></a>
+            </div>
+          </div>
 
-    <section className="architecture-band"><div className="container architecture-inner"><div><span>05 / FUTURE DIRECTION</span><h2>Technology × Architecture</h2></div><p>Digital skills are part of a bigger direction: combining technology, design thinking and architecture to create spaces and experiences that matter.</p></div></section>
+          <aside className="hero-visual" aria-label="Vincent Odhiambo portrait">
+            <div className="visual-frame">
+              <Image src="/images/vince.jpg" alt="Vincent Odhiambo" fill priority sizes="(max-width: 900px) 90vw, 42vw" style={{ objectFit: "cover" }} />
+              <div className="image-wash" />
+              <div className="frame-grid" />
+              <div className="visual-label top-left">VO / 001</div>
+              <div className="visual-label top-right">KE</div>
+              <div className="visual-caption">
+                <span>WEB / DESIGN / ARCHITECTURE</span>
+                <strong>Building ideas<br />into experiences.</strong>
+              </div>
+            </div>
+            <div className="visual-note"><span>SCROLL TO EXPLORE</span><i /></div>
+          </aside>
+        </div>
+      </section>
 
-    <section id="contact" className="section contact-section"><div className="container contact-card"><div><span>06 / CONTACT</span><h2>Have an idea?<br/><em>Let&apos;s build it.</em></h2><p>For web projects, collaborations or creative opportunities, get in touch.</p></div><div className="contact-links"><a href="mailto:vincentodhiambo@example.com"><Mail size={17}/> Email me <ArrowUpRight size={15}/></a><a href="https://github.com/vince551" target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={15}/></a><a href="https://instagram.com/vincey.dev" target="_blank" rel="noreferrer"><Instagram size={17}/> Instagram <ArrowUpRight size={15}/></a></div></div></section>
-    <footer><div className="container footer-inner"><strong>VINCE<span>.</span></strong><span>© {new Date().getFullYear()} Vincent Odhiambo</span><span>Web · Design · Architecture</span></div></footer>
-  </main>
+      <section className="statement">
+        <div className="container statement-inner">
+          <span className="section-eyebrow">THE APPROACH</span>
+          <p>Good work should feel <em>obvious</em> after it is finished — clear, useful and memorable without trying too hard.</p>
+        </div>
+      </section>
+
+      <section id="about" className="section about-section">
+        <div className="container split">
+          <div className="section-label"><span>01</span><strong>ABOUT</strong></div>
+          <div className="content-column">
+            <span className="kicker">DESIGNER / DEVELOPER / FUTURE ARCHITECT</span>
+            <h2>I build for the web now.<br /><em>I&apos;m designing for the future.</em></h2>
+            <p>I&apos;m Vincent Odhiambo, a student and web developer developing toward architecture. My work sits at the intersection of technology, visual design, spatial thinking and problem solving.</p>
+            <p>I care about interfaces that communicate quickly, products that solve real problems and details that make a project feel considered.</p>
+            <div className="about-facts">
+              <div><small>Current</small><strong>JOBO Student</strong></div>
+              <div><small>Direction</small><strong>Architecture</strong></div>
+              <div><small>Base</small><strong>Kenya</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" className="section capabilities-section">
+        <div className="container">
+          <div className="section-heading">
+            <div><span>02 / CAPABILITIES</span><h2>Built with range.</h2></div>
+            <p>Technology is the medium. Design is the discipline. The goal is always a better experience.</p>
+          </div>
+          <div className="skills-grid">
+            {skills.map(([number, title, text]) => (
+              <article className="skill-card" key={title}>
+                <div className="skill-top"><span>{number}</span><Code2 size={19} /></div>
+                <div><h3>{title}</h3><p>{text}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="section work-section">
+        <div className="container">
+          <div className="section-heading work-heading">
+            <div><span>03 / SELECTED WORK</span><h2>Things I&apos;ve built.</h2></div>
+            <p>Selected experiments, client work and products. The code is open where it can be.</p>
+          </div>
+
+          <div className="projects-list">
+            {projects.map((project) => (
+              <article className="project-row" key={project.number}>
+                <div className="project-number">{project.number}</div>
+                <div className="project-main">
+                  <div className="project-image">
+                    <Image src={project.image} alt={project.title} fill sizes="(max-width: 700px) 100vw, 320px" style={{ objectFit: "cover" }} />
+                  </div>
+                  <div className="project-copy">
+                    <div className="project-title"><span>PROJECT {project.number}</span><h3>{project.title}</h3></div>
+                    <p>{project.description}</p>
+                    <div className="stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+                  </div>
+                </div>
+                <div className="project-actions">
+                  {project.href !== "#" && <a href={project.href} target="_blank" rel="noreferrer">Live <ArrowUpRight size={14} /></a>}
+                  <a href={project.github} target="_blank" rel="noreferrer"><Github size={14} /> Code</a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <a className="all-work" href="https://github.com/vince551" target="_blank" rel="noreferrer">Explore the full GitHub <ArrowUpRight size={15} /></a>
+        </div>
+      </section>
+
+      <section className="leadership-section">
+        <div className="container leadership-grid">
+          <div><span className="section-eyebrow">04 / LEADERSHIP</span><h2>Impact beyond<br /><em>the screen.</em></h2></div>
+          <div className="leadership-copy">
+            <p>Technology is only one part of the picture. Leadership has taught me how to communicate, represent people, collaborate and turn ideas into action.</p>
+            <div className="leadership-card"><span>RECOGNITION</span><strong>Children&apos;s rights &amp; youth leadership</strong><p>Experience in public speaking, representation, teamwork and advocacy.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="architecture-band">
+        <div className="container architecture-inner">
+          <div><span>05 / FUTURE DIRECTION</span><h2>Technology <b>×</b> Architecture</h2></div>
+          <p>Digital skills are part of a bigger direction: combining technology, design thinking and architecture to create spaces and experiences that matter.</p>
+        </div>
+      </section>
+
+      <section id="contact" className="section contact-section">
+        <div className="container contact-card">
+          <div>
+            <span>06 / CONTACT</span>
+            <h2>Have an idea?<br /><em>Let&apos;s make it real.</em></h2>
+            <p>For web projects, collaborations and creative opportunities, find me through the links below.</p>
+          </div>
+          <div className="contact-links">
+            <a href="https://github.com/vince551" target="_blank" rel="noreferrer"><Github size={17} /> GitHub <ArrowUpRight size={15} /></a>
+            <a href="https://instagram.com/vincey.dev" target="_blank" rel="noreferrer"><Instagram size={17} /> Instagram <ArrowUpRight size={15} /></a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container footer-inner">
+          <strong>VINCE<span>.</span></strong>
+          <span>© {new Date().getFullYear()} Vincent Odhiambo</span>
+          <span>WEB · DESIGN · ARCHITECTURE</span>
+        </div>
+      </footer>
+    </main>
+  );
 }
