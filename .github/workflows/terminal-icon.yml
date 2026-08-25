@@ -1,0 +1,37 @@
+name: Set Vince OS terminal icon
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  terminal-icon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace Vince OS launcher with terminal symbol
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<a class="os-launcher" href="vince-os.html" aria-label="Open Vince OS" title="Open Vince OS">V</a>'
+          new = '<a class="os-launcher" href="vince-os.html" aria-label="Open Vince OS" title="Open Vince OS">&gt;_</a>'
+          if old in s:
+              p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
+
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Use terminal symbol for Vince OS launcher"
+          git push
