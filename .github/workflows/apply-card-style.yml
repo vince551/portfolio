@@ -1,0 +1,38 @@
+name: Apply portfolio card styling
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  inject-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Attach What I Bring stylesheet
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          marker = 'what-i-bring.css'
+          if marker not in text:
+              tag = '<link rel="stylesheet" href="what-i-bring.css">'
+              text = text.replace('</head>', tag + '</head>', 1)
+              p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit injected stylesheet link
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Stylesheet already attached."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "style: attach What I Bring card UI"
+          git push
