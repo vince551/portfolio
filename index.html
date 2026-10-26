@@ -199,29 +199,28 @@ p,h1,h2,h3,a,span,strong{overflow-wrap:anywhere}
 }
 
 
-/* Narrow-screen layout corrections: prevent hero/portrait/social controls from colliding */
+
+/* Final mobile layout: full-width content and retained floating socials */
 @media(max-width:700px){
-  .hero{min-height:0;height:auto;align-items:stretch}
-  .hero>.wrap,.hero-layout{width:calc(100% - 36px);max-width:100%;min-width:0}
-  .hero-layout{display:grid;grid-template-columns:minmax(0,1fr)!important;gap:30px}
-  .hero-layout>div,.hero-layout>.identity-card{grid-column:1/-1;width:100%;max-width:100%;min-width:0}
-  .hero-layout>div:first-child{overflow-wrap:anywhere}
-  .identity-card{padding:clamp(16px,4vw,26px);margin:0}
-  .portrait{width:min(100%,360px);height:auto;aspect-ratio:1/1}
-  .identity-meta{overflow-wrap:anywhere}
-  .floating-socials{display:none!important}
-  .hero-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  main{width:100%;max-width:100%;margin:0}
+  main>section{width:100%;max-width:100%;padding-left:0;padding-right:0}
+  .hero{width:100%;max-width:100%;min-height:0}
+  .hero .wrap,.hero-layout{width:calc(100% - 36px)!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important}
+  .hero-layout{display:grid!important;grid-template-columns:minmax(0,1fr)!important;align-items:stretch;gap:28px!important}
+  .hero-layout>div:first-child,.hero-layout>.identity-card{width:100%!important;max-width:100%!important;min-width:0;grid-column:1}
+  .identity-card{padding:clamp(14px,4vw,24px)!important}
+  .portrait{width:min(100%,360px)!important;margin-inline:auto}
+  .floating-socials{display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;gap:6px;left:auto;right:12px;top:auto;bottom:12px;transform:none!important;width:max-content;max-width:calc(100vw - 24px);padding:6px;background:rgba(8,11,18,.88);border:1px solid rgba(255,255,255,.12);border-radius:999px;z-index:150}
+  .floating-socials a{flex:0 0 36px;width:36px;height:36px}
+  .floating-socials svg{width:16px;height:16px}
+  .hero-note{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-note>div{min-width:0}
-  .hero-note>div:last-child{grid-column:1/-1}
-  .hero-actions .btn{min-width:0}
-  .hero-desc,.hero-desc strong{overflow-wrap:anywhere}
 }
 @media(max-width:420px){
-  .hero>.wrap,.hero-layout{width:calc(100% - 30px)}
-  .hero{padding-top:104px;padding-bottom:42px}
-  h1{font-size:clamp(42px,12vw,54px);line-height:.98;letter-spacing:-.075em}
-  .identity-card{border-radius:22px}
-  .portrait-label{font-size:8px;letter-spacing:.08em;max-width:90%;overflow:hidden}
+  .hero .wrap,.hero-layout{width:calc(100% - 30px)!important}
+  .floating-socials{right:8px;bottom:8px;gap:4px;padding:5px;max-width:calc(100vw - 16px)}
+  .floating-socials a{flex-basis:32px;width:32px;height:32px}
 }
 
 </style>
