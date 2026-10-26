@@ -198,6 +198,32 @@ p,h1,h2,h3,a,span,strong{overflow-wrap:anywhere}
   .portfolio-projects .project:hover .project-image img{filter:blur(2.5px) brightness(.42) saturate(.82);transform:scale(1.08)}
 }
 
+
+/* Narrow-screen layout corrections: prevent hero/portrait/social controls from colliding */
+@media(max-width:700px){
+  .hero{min-height:0;height:auto;align-items:stretch}
+  .hero>.wrap,.hero-layout{width:calc(100% - 36px);max-width:100%;min-width:0}
+  .hero-layout{display:grid;grid-template-columns:minmax(0,1fr)!important;gap:30px}
+  .hero-layout>div,.hero-layout>.identity-card{grid-column:1/-1;width:100%;max-width:100%;min-width:0}
+  .hero-layout>div:first-child{overflow-wrap:anywhere}
+  .identity-card{padding:clamp(16px,4vw,26px);margin:0}
+  .portrait{width:min(100%,360px);height:auto;aspect-ratio:1/1}
+  .identity-meta{overflow-wrap:anywhere}
+  .floating-socials{display:none!important}
+  .hero-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .hero-note>div{min-width:0}
+  .hero-note>div:last-child{grid-column:1/-1}
+  .hero-actions .btn{min-width:0}
+  .hero-desc,.hero-desc strong{overflow-wrap:anywhere}
+}
+@media(max-width:420px){
+  .hero>.wrap,.hero-layout{width:calc(100% - 30px)}
+  .hero{padding-top:104px;padding-bottom:42px}
+  h1{font-size:clamp(42px,12vw,54px);line-height:.98;letter-spacing:-.075em}
+  .identity-card{border-radius:22px}
+  .portrait-label{font-size:8px;letter-spacing:.08em;max-width:90%;overflow:hidden}
+}
+
 </style>
 <link rel="stylesheet" href="what-i-bring.css"></head>
 <body>
