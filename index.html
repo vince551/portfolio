@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Vincent Odhiambo — digital builder, web developer, aspiring architect and youth leader from Kenya.">
 <meta name="theme-color" content="#080b12">
+<link rel="canonical" href="https://vince.freepage.cc/">
+<meta property="og:url" content="https://vince.freepage.cc/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vincent Odhiambo — Digital Builder & Future Architect">
+<meta name="twitter:description" content="Technology, architecture, leadership and social impact in one portfolio.">
 <meta property="og:title" content="Vincent Odhiambo — Digital Builder & Future Architect">
 <meta property="og:description" content="Technology, architecture, leadership and social impact in one portfolio.">
 <meta property="og:image" content="Vin.jpg">
@@ -223,13 +228,31 @@ p,h1,h2,h3,a,span,strong{overflow-wrap:anywhere}
   .floating-socials a{flex-basis:32px;width:32px;height:32px}
 }
 
+
+/* Final polish: crisp project previews, accessible navigation and touch states */
+.skip-link{position:fixed;top:10px;left:12px;z-index:1200;padding:11px 15px;border-radius:10px;background:var(--cyan);color:#071018;font-weight:800;transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+button:focus-visible,.links a:focus-visible,.floating-socials a:focus-visible,.project-link:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.portfolio-projects .project-image img{filter:brightness(.72) saturate(.94);transform:scale(1.015)}
+.portfolio-projects .project:hover .project-image img{filter:brightness(.88) saturate(1.02);transform:scale(1.045)}
+.portfolio-projects .project:after{background:linear-gradient(180deg,rgba(5,9,18,.04),rgba(5,9,18,.28) 35%,rgba(5,9,18,.94))}
+.project-image img{background:#111827}
+@media(max-width:900px){
+  .links{display:none}
+  .links.is-open{display:flex;position:absolute;top:58px;right:0;flex-direction:column;align-items:stretch;min-width:220px;max-width:calc(100vw - 28px);max-height:calc(100dvh - 90px);overflow-y:auto;padding:8px;background:rgba(8,11,18,.97);border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 18px 45px rgba(0,0,0,.35)}
+  .links.is-open a{padding:13px 14px;font-size:11px}
+  .menu{display:grid;place-items:center;min-width:44px;min-height:44px;cursor:pointer}
+}
+@media(min-width:901px){.links{display:flex!important}}
+@media(hover:none){.portfolio-projects .project:hover .project-image img{filter:brightness(.72) saturate(.94);transform:scale(1.015)}}
+
 </style>
 <link rel="stylesheet" href="what-i-bring.css"></head>
 <body>
 <div class="progress" id="progress"></div><div class="bg-grid"></div><div class="glow"></div>
-<header id="header"><nav><a class="brand" href="#top">VINCE<span>.</span></a><div class="links"><a href="#about">About</a><a href="#journey">Journey</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#github">GitHub</a><a href="#contact">Contact</a></div><a class="nav-cta" href="#contact">LET'S BUILD ↗</a><button class="menu" id="menu" aria-label="Open navigation">☰</button></nav></header>
+<a class="skip-link" href="#top">Skip to content</a><header id="header"><nav aria-label="Main navigation"><a class="brand" href="#top">VINCE<span>.</span></a><div class="links"><a href="#about">About</a><a href="#journey">Journey</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#github">GitHub</a><a href="#contact">Contact</a></div><a class="nav-cta" href="#contact">LET'S BUILD ↗</a><button class="menu" id="menu" aria-label="Open navigation">☰</button></nav></header>
 <div class="floating-socials" aria-label="Social links"><a href="https://github.com/vince551" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.58A12 12 0 0 0 12 .5Z"/></svg></a><a href="https://www.linkedin.com/in/vince-odhiambo-4a123b400/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.28ZM5.34 7.41a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0-4.14ZM3.56 20.45h3.56V8.98H3.56v11.47ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 .77 24 1.72v20.56C24 .77 23.2 0 22.22 0Z"/></svg></a><a href="https://www.instagram.com/vincey.dev/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a><a href="https://wa.me/254718896349" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.54 0 .2 5.34.2 11.89c0 2.1.55 4.15 1.6 5.96L.1 23.9l6.2-1.63a11.86 11.86 0 0 0 5.78 1.47h.01c6.55 0 11.88-5.34 11.88-11.89 0-3.17-1.23-6.15-3.45-8.37ZM12.09 21.7h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.68.97.98-3.59-.23-.37a9.86 9.86 0 0 1-1.51-5.24C2.27 6.46 6.68 2.05 12.1 2.05a9.8 9.8 0 0 1 6.97 2.89 9.8 9.8 0 0 1 2.89 6.98c0 5.43-4.42 9.84-9.87 9.84Zm5.4-7.37c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.65-.07-.3.15-.46 1.26-1.46 2.4-.89.79-1.77 1.49-2.07 1.66-.3.17-.46.02-.61-.13-.14-.14-.35-.3-.52-.45-.17-.15-.3-.2-.5-.3-.2-.1-.37-.05-.52.03-.15.08-1.62.67-2.22.92-.58.24-.5.49-.51.67v.57c0 .2.07.52.37.8.3.27 1.02 1.04 2.49 1.04s2.89-1.07 3.09-1.22c.2-.15 3.2-2.1 4.49-5.09.31-.71.5-1.26.64-1.69.23-.71.2-1.35.12-1.86-.08-.57-.72-1.76-1.42-2.01-.7-.25-1.3-.25-1.42-.17-.13.07-.2.27-.35.57Z"/></svg></a><a class="os-launcher" href="vince-os.html" aria-label="Open Vince OS" title="Open Vince OS">&gt;_</a></div>
-<main id="top">
+<main id="top" tabindex="-1">
 <section class="hero"><div class="wrap hero-layout"><div><div class="eyebrow mono"><span class="pulse"></span> VINCENT ODHIAMBO · KENYA</div><h1>Building the<br><span class="outline">future</span> with<br><span class="gradient">purpose.</span></h1><p class="hero-desc">Student. Web developer. Aspiring architect. Children's rights advocate.<br><strong>I build digital experiences while preparing to design physical spaces that matter.</strong></p><div class="hero-actions"><a class="btn primary" href="#work">EXPLORE MY WORK ↗</a><a class="btn" href="cv.html" target="_blank">VIEW CV ↗</a></div><div class="hero-note"><div><b>6th</b><small>Year in children's leadership</small></div><div><b>JOBO</b><small>Student</small></div><div><b>∞</b><small>Ideas to build</small></div></div></div><aside class="identity-card"><div class="portrait"><img src="Vin.jpg" alt="Vincent Odhiambo"><div class="portrait-label mono">DIGITAL × ARCHITECTURE</div></div><div class="identity-meta"><h3>Vincent Odhiambo</h3><p>Student · aspiring architect · web developer · youth leader</p></div></aside></div></section>
 <section id="about"><div class="wrap"><div class="section-head mono"><span>01 / ABOUT ME</span></div><div class="about-grid"><h2 class="display">Different paths.<br><span>One direction.</span></h2><div class="body-copy"><p>I'm Vincent Odhiambo, a student with a growing passion for architecture, technology and creating things from scratch.</p><p>Web development became one of my strongest creative tools. I enjoy turning ideas into responsive websites, digital products and interactive experiences — while continuing to develop the design mindset I will carry into architecture.</p><p>Beyond technology, leadership and advocacy have shaped how I see problems. I believe good design should not only look impressive; it should serve people.</p><div class="quote"><strong>MY APPROACH</strong>Learn deeply. Build boldly. Lead responsibly. Leave every project better than I found it.</div></div></div></div></section>
 <section><div class="wrap"><div class="section-head mono"><span>02 / WHAT I BRING</span></div><div class="cards"><article class="card"><span class="number mono">01</span><div class="symbol">⌘</div><h3>Web Development</h3><p>Responsive interfaces, interactive websites and practical digital products built with modern web technologies.</p></article><article class="card"><span class="number mono">02</span><div class="symbol">⌗</div><h3>Design Thinking</h3><p>Breaking complex ideas into clear structures, useful flows and experiences people can actually understand.</p></article><article class="card"><span class="number mono">03</span><div class="symbol">⌂</div><h3>Architecture</h3><p>Developing toward architecture through drawing, spatial thinking, technical design and digital visualization.</p></article><article class="card"><span class="number mono">04</span><div class="symbol">✦</div><h3>Leadership</h3><p>Public speaking, advocacy, collaboration and using a leadership platform to amplify children's voices.</p></article></div></div></section>
@@ -246,17 +269,142 @@ p,h1,h2,h3,a,span,strong{overflow-wrap:anywhere}
 <section id="github"><div class="wrap"><div class="section-head mono"><span>06 / GITHUB ACTIVITY</span></div><div class="github-card"><div class="github-head"><div><span class="mono"><span class="pulse"></span> LIVE DATA</span><h3>Building in public.</h3><p>Repository activity pulled directly from GitHub.</p></div><a class="btn" href="https://github.com/vince551" target="_blank" rel="noopener">OPEN GITHUB ↗</a></div><div class="github-stats"><div><strong id="repo-count">—</strong><span>repositories</span></div><div><strong id="followers">—</strong><span>followers</span></div><div><strong id="following">—</strong><span>following</span></div><div><strong id="stars">—</strong><span>public stars</span></div></div><div class="repo-list" id="repo-list"><span class="mono">Loading recent projects…</span></div></div></div></section>
 <section id="contact"><div class="wrap"><div class="contact-panel"><div><span class="mono">07 / LET'S CONNECT</span><h2>Have an idea?<br><span>Let's build it.</span></h2><p>Whether it's a website, digital product, collaboration, community project or a conversation about technology and design — I'm open to meaningful opportunities.</p><div class="contact-links"><a class="contact-link" href="https://github.com/vince551" target="_blank" rel="noopener">GitHub ↗</a><a class="contact-link" href="https://www.instagram.com/vincey.dev/" target="_blank" rel="noopener">Instagram ↗</a><a class="contact-link" href="https://www.linkedin.com/in/vince-odhiambo-4a123b400/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><div class="contact-box"><span class="mono">DIRECT CONTACT</span><a class="email" href="mailto:architectvince7@gmail.com">architectvince7@gmail.com ↗</a><small>For project ideas, web development work, collaborations, mentorship or opportunities.</small></div></div></div></section>
 </main><footer><span>© <span id="year"></span> VINCENT ODHIAMBO</span><span>BUILD · DESIGN · ADVOCATE · REPEAT</span></footer>
-<script>const header=document.getElementById('header'),progress=document.getElementById('progress'),year=document.getElementById('year');year.textContent=new Date().getFullYear();addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>20);const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'});const menu=document.getElementById('menu'),links=document.querySelector('.links');menu?.setAttribute("aria-expanded","false");menu?.addEventListener('click',()=>{const open=links.dataset.open==='1';links.dataset.open=open?'0':'1';menu.setAttribute("aria-expanded",String(!open));menu.setAttribute("aria-label",open?"Open navigation":"Close navigation");links.style.display=open?'none':'flex';if(!open){links.style.position='absolute';links.style.top='58px';links.style.right='0';links.style.flexDirection='column';links.style.alignItems='stretch';links.style.minWidth='210px';links.style.padding='8px';links.style.background='rgba(8,11,18,.97)';links.style.border='1px solid rgba(255,255,255,.09)';links.style.borderRadius='14px'}});document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{if(innerWidth<901){links.style.display='none';links.dataset.open='0';menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','Open navigation')}}));const sections=[...document.querySelectorAll('main section[id]')],navLinks=[...document.querySelectorAll('.links a')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}})},{rootMargin:'-35% 0px -55% 0px',threshold:0});sections.forEach(s=>observer.observe(s));async function loadGithub(){try{const[p,r]=await Promise.all([fetch('https://api.github.com/users/vince551'),fetch('https://api.github.com/users/vince551/repos?sort=updated&per_page=6')]);if(!p.ok||!r.ok)throw new Error();const profile=await p.json(),repos=await r.json();document.getElementById('repo-count').textContent=profile.public_repos;document.getElementById('followers').textContent=profile.followers;document.getElementById('following').textContent=profile.following;document.getElementById('stars').textContent=repos.reduce((n,x)=>n+(x.stargazers_count||0),0);document.getElementById('repo-list').innerHTML=repos.slice(0,6).map(x=>`<a href="${x.html_url}" target="_blank" rel="noopener"><strong>${x.name}</strong><span>${(x.description||'Open-source project').slice(0,90)}</span></a>`).join('')}catch(e){document.getElementById('repo-list').innerHTML='<span class="mono">GitHub data unavailable right now.</span>'}}loadGithub();
-/* Progressive enhancement: reveal sections as they enter view */
+<script>
+const header = document.getElementById('header');
+const progress = document.getElementById('progress');
+const year = document.getElementById('year');
+const menu = document.getElementById('menu');
+const links = document.querySelector('.links');
+
+if (year) year.textContent = new Date().getFullYear();
+
+let scrollTicking = false;
+function updateScrollUI() {
+  header?.classList.toggle('scrolled', window.scrollY > 20);
+  if (progress) {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (maxScroll > 0 ? window.scrollY / maxScroll * 100 : 0) + '%';
+  }
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollUI);
+    scrollTicking = true;
+  }
+}, { passive: true });
+updateScrollUI();
+
+function closeMenu() {
+  links?.classList.remove('is-open');
+  menu?.setAttribute('aria-expanded', 'false');
+  menu?.setAttribute('aria-label', 'Open navigation');
+  if (menu) menu.textContent = '☰';
+}
+function toggleMenu() {
+  if (!links || !menu) return;
+  const isOpen = links.classList.toggle('is-open');
+  menu.setAttribute('aria-expanded', String(isOpen));
+  menu.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  menu.textContent = isOpen ? '×' : '☰';
+}
+menu?.setAttribute('aria-expanded', 'false');
+menu?.addEventListener('click', toggleMenu);
+document.querySelectorAll('.links a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeMenu();
+});
+document.addEventListener('click', event => {
+  if (links?.classList.contains('is-open') && !links.contains(event.target) && !menu?.contains(event.target)) closeMenu();
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeMenu();
+}, { passive: true });
+
+const sections = [...document.querySelectorAll('main section[id]')];
+const navLinks = [...document.querySelectorAll('.links a')];
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  sections.forEach(section => sectionObserver.observe(section));
+}
+
+async function loadGithub() {
+  const repoList = document.getElementById('repo-list');
+  const setStat = (id, value) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = String(value);
+  };
+  try {
+    const profileResponse = await fetch('https://api.github.com/users/vince551');
+    if (!profileResponse.ok) throw new Error('GitHub profile request failed');
+    const profile = await profileResponse.json();
+
+    const firstPageResponse = await fetch('https://api.github.com/users/vince551/repos?sort=updated&per_page=100&page=1');
+    if (!firstPageResponse.ok) throw new Error('GitHub repositories request failed');
+    const firstPage = await firstPageResponse.json();
+    const allRepos = [...firstPage];
+
+    const pageCount = Math.min(10, Math.ceil((profile.public_repos || firstPage.length) / 100));
+    for (let page = 2; page <= pageCount; page++) {
+      const response = await fetch('https://api.github.com/users/vince551/repos?sort=updated&per_page=100&page=' + page);
+      if (!response.ok) break;
+      const pageRepos = await response.json();
+      allRepos.push(...pageRepos);
+      if (pageRepos.length < 100) break;
+    }
+
+    setStat('repo-count', profile.public_repos ?? allRepos.length);
+    setStat('followers', profile.followers ?? 0);
+    setStat('following', profile.following ?? 0);
+    setStat('stars', allRepos.reduce((total, repo) => total + (repo.stargazers_count || 0), 0));
+
+    if (repoList) {
+      repoList.replaceChildren();
+      allRepos.slice(0, 6).forEach(repo => {
+        const card = document.createElement('a');
+        card.href = repo.html_url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        const name = document.createElement('strong');
+        name.textContent = repo.name || 'Untitled repository';
+        const description = document.createElement('span');
+        description.textContent = (repo.description || 'Public project on GitHub').slice(0, 100);
+        card.append(name, description);
+        repoList.append(card);
+      });
+      if (!allRepos.length) {
+        const empty = document.createElement('span');
+        empty.className = 'mono';
+        empty.textContent = 'No public repositories to display yet.';
+        repoList.append(empty);
+      }
+    }
+  } catch (error) {
+    if (repoList) {
+      const message = document.createElement('span');
+      message.className = 'mono';
+      message.textContent = 'GitHub data is temporarily unavailable. Visit the profile to explore projects.';
+      repoList.replaceChildren(message);
+    }
+  }
+}
+loadGithub();
+
+/* Reveal content progressively, while respecting reduced-motion preferences. */
 try {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('reveal-ready');
     const revealTargets = document.querySelectorAll('main section .wrap > *, .hero-layout > *, .section-head, .contact-panel > *');
-    revealTargets.forEach((el, index) => {
-      el.setAttribute('data-reveal', '');
-      if (el.classList.contains('section-head')) el.style.transitionDelay = '0ms';
-      else el.style.transitionDelay = (Math.min(index % 4, 3) * 75) + 'ms';
+    revealTargets.forEach((element, index) => {
+      element.setAttribute('data-reveal', '');
+      element.style.transitionDelay = element.classList.contains('section-head') ? '0ms' : (Math.min(index % 4, 3) * 75) + 'ms';
     });
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -266,9 +414,10 @@ try {
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
-    revealTargets.forEach(el => revealObserver.observe(el));
+    revealTargets.forEach(element => revealObserver.observe(element));
   }
-} catch (error) { /* Keep the portfolio fully usable if motion APIs are unavailable. */ }
-
+} catch (error) {
+  /* The portfolio remains usable if motion APIs are unavailable. */
+}
 </script>
 </body></html>
