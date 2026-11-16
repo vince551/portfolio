@@ -420,4 +420,15 @@ try {
   /* The portfolio remains usable if motion APIs are unavailable. */
 }
 </script>
+<script>
+/* Keyboard shortcut: Shift + V opens Vince OS from the portfolio. */
+document.addEventListener('keydown', function (event) {
+  if (event.shiftKey && event.key.toLowerCase() === 'v' && !event.ctrlKey && !event.altKey && !event.metaKey) {
+    const target = event.target;
+    if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
+    event.preventDefault();
+    window.location.href = 'vince-os.html';
+  }
+});
+</script>
 </body></html>
